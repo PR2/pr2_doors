@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<robot name="door"
+       xmlns:xi="http://www.w3.org/2001/XInclude"
+       xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"
+       xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"
+       xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics">
+
+  <property name="M_PI" value="3.1415926535897931" />
+  <property name="wall_x_loc" value="1.25" />
+  <property name="handle_height" value="0.85" />
+  <property name="handle_length" value="0.14" />
+
+
+  <link name="world" />
+  <joint name="floor1_joint" type="planar"> 
+    <parent link="world" />
+    <origin xyz="${wall_x_loc} 0.65 ${0.0}" rpy="0 0 0" />
+    <child link="floor1_link" />
+  </joint>
+  <!-- link blocks -->
+  <link name="floor1_link">
+    <inertial>
+      <mass value="100" />
+      <com xyz="0 0 0.0" />
+      <inertia ixx="10" ixy="0"  ixz="0"
+               iyy="10" iyz="0"
+               izz="10" />
+    </inertial> 
+    <visual>
+      <origin xyz="0 8 0.001" rpy="0 0 0" />
+      <geometry name="floor1_visual_geom">
+        <box size="8 8 0.002" />
+      </geometry>
+    </visual> 
+    <collision>
+      <origin xyz="0 8 0.001" rpy="0.0 0.0 0.0" />
+      <geometry name="floor1_collision_geom">
+        <box size="8 8 0.002" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="floor1_link">
+    <material>PR2/Grey</material>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>1000000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <joint name="floor2_joint" type="fixed" > 
+    <parent link="floor1_link" />
+    <origin xyz="0 -8 0" rpy="0 0 0" />
+    <child link="floor2_link" />
+  </joint>
+  <link name="floor2_link">
+    <inertial>
+      <mass value="100" />
+      <com xyz="0 0 0.0" />
+      <inertia ixx="10" ixy="0"  ixz="0"
+               iyy="10" iyz="0"
+               izz="10" />
+    </inertial> 
+    <visual>
+      <origin xyz="0 -4 0.000" rpy="0 0 0" />
+      <geometry name="floor2_visual_geom">
+        <box size="8 8 0.002" />
+      </geometry>
+    </visual> 
+    <collision>
+      <origin xyz="0 -4 0.000" rpy="0.0 0.0 0.0" />
+      <geometry name="floor2_collision_geom">
+        <box size="8 8 0.002" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="floor2_link">
+    <material>PR2/Grey</material>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+  </gazebo>
+
+  <joint name="wall1_joint" type="fixed" >
+    <parent link="floor1_link" />
+    <origin xyz="0 0.0 0" rpy="0 0 0" />
+    <child link="wall1_link" />
+  </joint>
+  <link name="wall1_link">
+    <inertial>
+      <mass value="100" />
+      <com xyz="0 5 1" />
+      <inertia ixx="10" ixy="0"  ixz="0"
+               iyy="10" iyz="0"
+               izz="10" />
+    </inertial> 
+    <visual>
+      <origin xyz="0 5 1" rpy="0 0 0" />
+      <geometry name="wall1_visual_geom">
+        <box size="0.4 10 2" />
+      </geometry>
+    </visual> 
+    <collision>
+      <origin xyz="0 5 1" rpy="0.0 0.0 0.0" />
+      <geometry name="wall1_collision_geom">
+        <box size="0.4 10 2" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="wall1_link">
+    <material>PR2/Grey2</material>
+    <laserRetro>1000</laserRetro>
+    <selfCollide>false</selfCollide>
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+
+  
+  <joint name="wall2_joint" type="fixed" >
+    <parent link="floor1_link" />
+    <origin xyz="0 -1.02 0.0" rpy="0 0 0" />
+    <child link="wall2_link" />
+  </joint>
+  <link name="wall2_link">
+    <inertial>
+      <mass value="100" />
+      <com xyz="0 -5 1" />
+      <inertia ixx="10" ixy="0"  ixz="0"
+               iyy="10" iyz="0"
+               izz="10" />
+    </inertial> 
+    <visual>
+      <origin xyz="0 -5 1" rpy="0 0 0" />
+      <geometry name="wall2_visual_geom">
+        <box size="0.4 10 2" />
+      </geometry>
+    </visual> 
+    <collision>
+      <origin xyz="0 -5 1" rpy="0 0 0" />
+      <geometry name="wall2_collision_geom">
+        <box size="0.4 10 2" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="wall2_link">
+    <material>PR2/Grey2</material>
+    <laserRetro>1500</laserRetro>
+    <selfCollide>false</selfCollide>
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  
+
+  <gazebo reference="door_link">
+    <latchJoint>handle_joint</latchJoint>
+    <latchAngle>-1.57</latchAngle>
+    <doorClosedAngle>0.0</doorClosedAngle>
+    <latchKp>200.0</latchKp>
+    <latchKd>0.0</latchKd>
+    <latchFMax>1000.0</latchFMax>
+  </gazebo>
+
+  <joint name="door_joint" type="revolute" >
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="${-M_PI}" upper="${M_PI}" effort="1000" velocity="10" />
+    <safety_controller soft_lower_limit="${-M_PI+0.1}" soft_upper_limit="${M_PI-0.1}"
+           k_position="100.0" k_velocity="10.0" />
+    <dynamics damping="100" friction="0.0" />
+
+    <parent link="wall1_link" />
+    <child link="door_link" />
+  </joint>
+  <link name="door_link">
+    <inertial >
+      <mass value="30" />
+      <com xyz="0.0 -0.5 1.0" /> 
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"
+                iyy="1.0" iyz="0.0"
+                izz="3.0" />
+    </inertial>
+    <visual >
+      <origin xyz="0.0 -0.5 1.0" rpy="0 0 ${M_PI}" />
+      <geometry name="sholder_roll_mesh_file">
+        <box size="0.1 1.0 2.0" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.0 -0.5 1.0" rpy="0 0 ${M_PI}" />
+      <geometry name="door_collision_geom">
+        <box size="0.1 1.0 2.0" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="door_link">
+    <material>PR2/Grey</material>
+    <laserRetro>2000</laserRetro>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.01</dampingFactor>
+  </gazebo>
+
+  <joint name="handle_joint" type="revolute" >
+    <axis xyz="1 0 0" />
+    <origin xyz="-0.11 -0.8 ${handle_height-0.05}" rpy="${0*M_PI/2.0} 0 0" />
+    <limit lower="${-M_PI/4}" upper="${M_PI/4}" effort="1000" velocity="10" />
+    <safety_controller soft_lower_limit="${-M_PI/4+0.01}" soft_upper_limit="${M_PI/4-0.1}"
+           k_position="100.0" k_velocity="10.0" />
+    <dynamics damping="10" friction="0.0" />
+    <parent link="door_link" />
+    <child link="handle_link" />
+  </joint>
+  <link name="handle_link">
+    <inertial >
+      <mass value="0.3" />
+      <com xyz="0.0 ${handle_length/2-0.01} 0.0" /> 
+      <inertia  ixx="0.01"  ixy="0.0"  ixz="0.0"
+                iyy="0.01" iyz="0.0"
+                izz="0.01" />
+    </inertial>
+    <visual >
+      <origin xyz="0.0 ${handle_length/2-0.01} 0.0" rpy="${1*M_PI/2} 0 0" />
+      <geometry name="sholder_roll_mesh_file">
+        <cylinder radius="0.013" length="${handle_length}" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.0 ${handle_length/2-0.01} 0.0" rpy="${1*M_PI/2} 0 0" />
+      <geometry name="handle_collision_geom">
+        <cylinder radius="0.013" length="${handle_length}" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="handle_link">
+    <material>PR2/Handle</material>
+    <laserRetro>3900.0</laserRetro>
+    <mu1>50.0</mu1>
+    <mu2>50.0</mu2>
+    <kp>100000000.0</kp>
+    <kd>1.0</kd>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+    <dampingFactor>0.05</dampingFactor>
+  </gazebo>
+
+  <joint name="handle1_joint" type="fixed">
+    <parent link="handle_link" />
+    <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+    <child link="handle1_link" />
+  </joint>
+  <link name="handle1_link">
+    <inertial >
+      <mass value="0.1" />
+      <com xyz="0.0 0.0 0.0" /> 
+      <inertia  ixx="0.01"  ixy="0.0"  ixz="0.0"
+                iyy="0.01" iyz="0.0"
+                izz="0.001" />
+    </inertial>
+    <visual >
+      <origin xyz="0.025 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="sholder_roll_mesh_file">
+        <cylinder radius="0.01" length="0.05" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.025 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="handle1_collision_geom">
+        <cylinder radius="0.01" length="0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="handle1_link">
+    <material>PR2/Handle</material>
+    <laserRetro>3900.0</laserRetro>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+
+  <joint name="handle2_joint" type="fixed">
+    <parent link="handle_link" />
+    <origin xyz="0.0 0.12 0" rpy="0 0 0" />
+    <child link="handle2_link" />
+  </joint>
+  <link name="handle2_link">
+    <inertial >
+      <mass value="0.1" />
+      <com xyz="0.0 0.0 0.0" /> 
+      <inertia  ixx="0.01"  ixy="0.0"  ixz="0.0"
+                iyy="0.01" iyz="0.0"
+                izz="0.001" />
+    </inertial>
+    <visual >
+      <origin xyz="0.025 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="sholder_roll_mesh_file">
+        <cylinder radius="0.01" length="0.05" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.025 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="handle2_collision_geom">
+        <cylinder radius="0.01" length="0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="handle2_link">
+    <material>PR2/Shiny</material>
+    <laserRetro>3900.0</laserRetro>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+
+  <joint name="handle3_joint" type="fixed">
+    <parent link="handle_link" />
+    <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+    <child link="handle3_link" />
+  </joint>
+  <link name="handle3_link">
+    <inertial >
+      <mass value="0.1" />
+      <com xyz="0.0 0.0 0.0" /> 
+      <inertia  ixx="0.01"  ixy="0.0"  ixz="0.0"
+                iyy="0.01" iyz="0.0"
+                izz="0.001" />
+    </inertial>
+    <visual >
+      <origin xyz="0.06 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="sholder_roll_mesh_file">
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.06 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="handle3_collision_geom">
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="handle3_link">
+    <material>PR2/Shiny</material>
+    <laserRetro>3900.0</laserRetro>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <joint name="keyhole_joint" type="fixed">
+    <parent link="door_link" />
+    <origin xyz="-0.05 -0.8 ${handle_height-0.05+0.15}" rpy="${0*M_PI/2.0} 0 0" />
+    <child link="keyhole_link" />
+  </joint>
+  <link name="keyhole_link">
+    <inertial >
+      <mass value="0.1" />
+      <com xyz="0.0 0.0 0.0" /> 
+      <inertia  ixx="0.01"  ixy="0.0"  ixz="0.0"
+                iyy="0.01" iyz="0.0"
+                izz="0.001" />
+    </inertial>
+    <visual >
+      <origin xyz="0.0 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="sholder_roll_mesh_file">
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </visual>
+    <collision >
+      <origin xyz="0.0 0.0 0.0" rpy="0 ${1*M_PI/2.0} 0" />
+      <geometry name="keyhole_collision_geom">
+        <cylinder radius="0.03" length="0.02" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="keyhole_link">
+    <material>PR2/Shiny</material>
+    <laserRetro>3900.0</laserRetro>
+    <turnGravityOff>true</turnGravityOff>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <gazebo>
+    <!-- gazebo_ros_p3d for position groundtruth -->
+    <controller:gazebo_ros_p3d name="p3d_door_controller" plugin="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>100.0</updateRate>
+        <bodyName>door_link</bodyName>
+        <topicName>door_pose</topicName>
+        <frameName>/map</frameName>
+        <interface:position name="p3d_door_position"/>
+    </controller:gazebo_ros_p3d>
+
+    <controller:gazebo_ros_controller_manager name="door_controller_manager" plugin="libgazebo_ros_controller_manager.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1000.0</updateRate>
+      <robotParam>door_description</robotParam>
+      <interface:audio name="gazebo_ros_controller_manager_dummy_iface" />
+    </controller:gazebo_ros_controller_manager>
+  </gazebo>
+
+  <!-- transmission mechanism controls -->
+  <transmission type="pr2_mechanism_model/SimpleTransmission" name="door_trans">
+    <actuator name="door_motor" />
+    <joint name="door_joint" />
+    <mechanicalReduction>100</mechanicalReduction>
+  </transmission>
+
+  <transmission type="pr2_mechanism_model/SimpleTransmission" name="handle_trans">
+    <actuator name="handle_motor" />
+    <joint name="handle_joint" />
+    <mechanicalReduction>100</mechanicalReduction>
+  </transmission>
+
+</robot>

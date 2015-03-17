@@ -1,0 +1,4 @@
+<launch>
+  <node name="epic_fail_cacher" pkg="ros_epic_fail" type="ros_epic_fail" output="screen"/>
+  <test test-name="epic_fail_cacher" pkg="pr2_doors_gazebo_demo" type="waiter.py" time-limit="130"/>
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="$(find pr2_doors_gazebo_demo)/launch/pr2_and_door.launch"/>
+  <include file="$(find pr2_doors_executive)/doors.launch" />
+
+  <node pkg="pr2_doors_executive" type="executive.py" output="screen" name="door_executive" />
+
+</launch>
+ 

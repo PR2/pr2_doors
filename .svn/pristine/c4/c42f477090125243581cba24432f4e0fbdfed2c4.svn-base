@@ -1,0 +1,13 @@
+Index: worlds/empty.world
+===================================================================
+--- worlds/empty.world	(revision 36471)
++++ worlds/empty.world	(working copy)
+@@ -62,7 +62,7 @@
+     </sky>
+     <grid>false</grid>
+     <maxUpdateRate>10.</maxUpdateRate>
+-    <shadowTechnique>stencilAdditive</shadowTechnique>
++    <shadowTechnique>none</shadowTechnique>
+   </rendering:ogre>
+ 
+   <!-- clock -->
