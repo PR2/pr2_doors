@@ -7,7 +7,7 @@
   <include file="$(find pr2_gazebo)/launch/pr2.launch" />
 
   <!-- load door -->
-  <param name="door_description" command="$(find xacro)/xacro.py '$(find pr2_doors_gazebo_demo)/urdf/door.urdf'" />
+  <param name="door_description" command="$(find xacro)/xacro.py '$(find pr2_doors_gazebo_demo)/urdf/door.urdf.xacro'" />
   <node pkg="gazebo_ros" type="spawn_model" args="-urdf -param door_description -n doorbot -model doorbot" respawn="false" name="door_description"/>
 
   <!-- load door and handle controllers -->
