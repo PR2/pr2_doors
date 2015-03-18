@@ -1,0 +1,91 @@
+<package>
+  <name>pr2_doors_actions</name>
+  <version>1.0.0</version>
+  <description>The highlevel controllers for the door domain</description>
+  <maintainer email="dash@clearpathrobotics.com">Devon Ash</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://pr.willowgarage.com</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Wim Meeussen</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>pr2_common_action_msgs</build_depend>
+  <build_depend>pr2_arm_move_ik</build_depend>
+  <build_depend>joint_trajectory_generator</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>door_msgs</build_depend>
+  <build_depend>move_base_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>pr2_controllers_msgs</build_depend>
+  <build_depend>door_handle_detector</build_depend>
+  <build_depend>pr2_doors_common</build_depend>
+  <build_depend>tff_controller</build_depend>
+  <build_depend>costmap_2d</build_depend>
+  <build_depend>base_local_planner</build_depend>
+  <build_depend>laser_assembler</build_depend>
+  <build_depend>pr2_laser_snapshotter</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>pr2_common_action_msgs</run_depend>
+  <run_depend>pr2_arm_move_ik</run_depend>
+  <run_depend>joint_trajectory_generator</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>diagnostic_updater</run_depend>
+  <run_depend>door_msgs</run_depend>
+  <run_depend>move_base_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>pr2_controllers_msgs</run_depend>
+  <run_depend>door_handle_detector</run_depend>
+  <run_depend>pr2_doors_common</run_depend>
+  <run_depend>tff_controller</run_depend>
+  <run_depend>costmap_2d</run_depend>
+  <run_depend>base_local_planner</run_depend>
+  <run_depend>laser_assembler</run_depend>
+  <run_depend>pr2_laser_snapshotter</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>roscpp</test_depend> -->
+  <!-- <test_depend>kdl</test_depend> -->
+  <!-- <test_depend>tf</test_depend> -->
+  <!-- <test_depend>actionlib</test_depend> -->
+  <!-- <test_depend>pr2_common_action_msgs</test_depend> -->
+  <!-- <test_depend>pr2_arm_move_ik</test_depend> -->
+  <!-- <test_depend>joint_trajectory_generator</test_depend> -->
+  <!-- <test_depend>std_msgs</test_depend> -->
+  <!-- <test_depend>diagnostic_msgs</test_depend> -->
+  <!-- <test_depend>diagnostic_updater</test_depend> -->
+  <!-- <test_depend>door_msgs</test_depend> -->
+  <!-- <test_depend>move_base_msgs</test_depend> -->
+  <!-- <test_depend>geometry_msgs</test_depend> -->
+  <!-- <test_depend>actionlib_msgs</test_depend> -->
+  <!-- <test_depend>pr2_controllers_msgs</test_depend> -->
+  <!-- <test_depend>door_handle_detector</test_depend> -->
+  <!-- <test_depend>pr2_doors_common</test_depend> -->
+  <!-- <test_depend>tff_controller</test_depend> -->
+  <!-- <test_depend>costmap_2d</test_depend> -->
+  <!-- <test_depend>base_local_planner</test_depend> -->
+  <!-- <test_depend>laser_assembler</test_depend> -->
+  <!-- <test_depend>pr2_laser_snapshotter</test_depend> -->
+
+<export>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib " cflags="-I${prefix}/include"/>
+</export>
+
+</package>

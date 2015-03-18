@@ -1,0 +1,6 @@
+arm: r
+arm_controller: r_arm_controller
+free_angle: 2
+search_discretization: 0.01
+ik_timeout: 5.0
+max_velocity: 0.4

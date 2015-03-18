@@ -1,0 +1,6 @@
+<launch>
+  <param name="use_sim_time" type="bool" value="false" />
+  <node pkg="rosrecord" type="rosrecord" args="-f /bags/door_handle_detection  /tf full_cloud stereo/raw_stereo" output="screen" />
+  <node pkg="door_handle_detector" type="kill_record.sh" />
+</launch>
+

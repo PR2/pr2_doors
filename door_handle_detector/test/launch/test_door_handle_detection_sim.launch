@@ -1,0 +1,62 @@
+<launch>
+
+ <!--param name="use_sim_time" value="true"/-->
+
+ <!--include file="$(find pr2_alpha)/prf.machine"/-->
+
+
+
+
+ <!-- joy stick annotation launch -->
+ <node pkg="joy" type="joy" />
+ <include file="$(find joy_annotator)/joy_annotator.launch"/>
+
+
+
+
+
+ <!-- stereo processing for checkerboard detection -->
+ <node pkg="stereo_image_proc" type="stereoproc" />
+ <group ns="checkerdetector" clear_params="true">
+    <param name="display" type="int" value="0"/>
+    <param name="frame_id" type="string" value="stereo_optical_link"/>
+    <param name="rect0_size_x" type="double" value="0.02733"/>
+    <param name="rect0_size_y" type="double" value="0.027"/>
+    <param name="grid0_size_x" type="int" value="6"/>
+    <param name="grid0_size_y" type="int" value="8"/>
+    <param name="type0" type="string" value="data/ricebox.kinbody.xml"/>
+    <node pkg="checkerboard_detector" type="checkerboard_detector" respawn="true" >
+      <remap from="CamInfo" to="/stereo/left/cam_info"/>
+      <remap from="Image" to="/stereo/left/image_rect"/>
+        <!--       <env name="DISPLAY" value=":0.0"/> -->
+    </node>
+  </group>
+
+
+
+
+  <!-- checkerboard door  detection node -->
+    <param name="door_checkerboard_detector/door_width" type="double" value="0.9"/>
+    <param name="door_checkerboard_detector/door_checkerboard_x_offset" type="double" value="0.05"/>
+    <param name="door_checkerboard_detector/door_checkerboard_z_offset" type="double" value="1.65"/>
+    <param name="door_checkerboard_detector/checkerboard_handle_x_offset" type="double" value="0.72"/>
+    <param name="door_checkerboard_detector/checkerboard_handle_z_offset" type="double" value="0.74"/>
+    <param name="door_checkerboard_detector/frame_id" type="string" value="base_link"/>
+    <node pkg="door_handle_detector" type="door_checkerboard_detector" respawn="true" />
+
+
+
+  <!-- door handle detection using the tilt laser-->
+ <include file="$(find door_handle_detector)/door_handle_detector.launch"/>
+
+
+
+
+
+  <!-- door handle detection test -->
+    <param name="test_door_detection_node/joy_topic" type="string" value="/joy_annotator/annotation_msg"/>
+    <param name="test_door_detection_node/frame_id" type="string" value="base_link"/>
+    <node pkg="door_handle_detector" type="test_door_detection" respawn="true" output="screen">
+    </node>
+
+</launch> 

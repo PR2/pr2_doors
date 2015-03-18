@@ -1,0 +1,6 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b pr2_laser_snapshotter exposes no public API.
+*/

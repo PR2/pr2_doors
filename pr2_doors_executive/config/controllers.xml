@@ -1,0 +1,35 @@
+<launch>
+
+<!-- tff controller -->
+  <group ns="r_arm_cartesian_tff_controller" clear_params="true">
+    <param name="type" type="string" value="tff_controller/TFFController" />
+    <param name="root_name" type="string" value="torso_lift_link" />
+    <param name="tip_name" type="string" value="r_gripper_tool_frame" />
+
+    <param name="twist_to_wrench_trans" value="10.0" />
+    <param name="twist_to_wrench_rot" value="1.0" />
+
+    <param name="vel_trans/p" value="2.0" />
+    <param name="vel_trans/i" value="0.5" />
+    <param name="vel_trans/d" value="0.0" />
+    <param name="vel_trans/i_clamp" value="1.0" />
+
+    <param name="vel_rot/p" value="0.3" />
+    <param name="vel_rot/i" value="0.1" />
+    <param name="vel_rot/d" value="0.0" />
+    <param name="vel_rot/i_clamp" value="0.2" />
+
+    <param name="pos_trans/p" value="10.0" />
+    <param name="pos_trans/i" value="0.5" />
+    <param name="pos_trans/d" value="0.0" />
+    <param name="pos_trans/i_clamp" value="1.0" />
+
+    <param name="pos_rot/p" value="50.0" />
+    <param name="pos_rot/i" value="0.1" />
+    <param name="pos_rot/d" value="0.0" />
+    <param name="pos_rot/i_clamp" value="0.2" />
+  </group>
+
+  <node pkg="pr2_controller_manager" type="spawner" args="--stopped r_arm_cartesian_tff_controller" name="tff_controller_spawner"/>
+
+</launch>

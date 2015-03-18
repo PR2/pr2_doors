@@ -1,0 +1,20 @@
+<launch>
+
+ <!--param name="use_sim_time" value="true"/-->
+   <include file="$(find pr2_machine)/$(env ROBOT).machine"/>
+
+ <!-- joy stick annotation launch -->
+   <!-- node pkg="joy" type="joy" /-->
+   <include file="$(find joy_annotator)/joy_annotator.launch"/>
+
+ <!-- door handle detection test -->
+   <node pkg="door_handle_detector" type="open_door_executive_test" output="screen" />
+
+  <!-- Head trajectory controller -->
+  <param name="head/trajectory_controller/velocity_scaling_factor" type="double" value="0.05"/>
+  <param name="head/trajectory_controller/trajectory_wait_timeout" type="double" value="5.0"/>
+  <param name="head/trajectory_controller/head_tilt_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="head/trajectory_controller/head_pan_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <node pkg="pr2_controller_manager" type="spawner" args="$(find sbpl_arm_executive)/launch/xml/head_trajectory_controller.xml" output="screen"/>
+
+</launch> 

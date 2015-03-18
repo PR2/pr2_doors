@@ -1,0 +1,18 @@
+<launch>
+
+<!-- Parameters -->
+ <include file="$(find door_handle_detector)/launch/door_handle_detector_params.xml"/>
+
+ <!-- Handle detector Camera 
+ <node pkg="door_handle_detector" name="handle_detector_vision" type="handle_detector_vision" >
+     <remap from="stereo" to="narrow_stereo"/>
+ </node>
+ -->
+
+<!-- Handle detector Laser -->
+  <node pkg="door_handle_detector" type="handle_detector_laser" name="handle_detector_laser" />
+
+<!-- Door detector -->
+  <node pkg="door_handle_detector" type="doors_detector_laser" name="doors_detector_laser" />
+
+</launch>

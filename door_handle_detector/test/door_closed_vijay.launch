@@ -1,0 +1,11 @@
+<launch>
+
+ <include file="$(find door_handle_detector)/test/test_setup.xml"/>
+
+<!-- play bag file -->
+  <node pkg="rosrecord" name="rosplay" type="rosplay" args="-r 0.5 -b 100  $(find door_handle_detector)/test/door_closed_vijay.bag" />
+
+<!-- run test  -->
+  <test retry="2" test-name="door_closed_vijay" pkg="door_handle_detector" type="detect_handle_from_bag.py" />
+
+</launch>

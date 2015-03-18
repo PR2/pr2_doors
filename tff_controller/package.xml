@@ -1,0 +1,50 @@
+<package>
+  <name>tff_controller</name>
+  <version>1.0.0</version>
+  <description>tff_controller</description>
+  <maintainer email="dash@clearpathrobotics.com">Devon Ash</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/tff_controller</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Wim Meeussen</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>tf</build_depend>
+  <build_depend>pr2_controller_interface</build_depend>
+  <build_depend>pr2_mechanism_model</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>control_toolbox</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>pluginlib</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>tf</run_depend>
+  <run_depend>pr2_controller_interface</run_depend>
+  <run_depend>pr2_mechanism_model</run_depend>
+  <run_depend>realtime_tools</run_depend>
+  <run_depend>control_toolbox</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>pluginlib</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>kdl</test_depend> -->
+  <!-- <test_depend>tf</test_depend> -->
+  <!-- <test_depend>pr2_controller_interface</test_depend> -->
+  <!-- <test_depend>pr2_mechanism_model</test_depend> -->
+  <!-- <test_depend>realtime_tools</test_depend> -->
+  <!-- <test_depend>control_toolbox</test_depend> -->
+  <!-- <test_depend>geometry_msgs</test_depend> -->
+  <!-- <test_depend>pluginlib</test_depend> -->
+
+<export>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib/ -L${prefix}/lib -ltff_controller" cflags="-I${prefix}/include"/>
+    <pr2_controller_interface plugin="${prefix}/controller_plugins.xml"/>
+</export>
+
+</package>

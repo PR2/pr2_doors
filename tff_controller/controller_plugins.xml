@@ -1,0 +1,3 @@
+<library path="lib/libtff_controller">
+  <class name="tff_controller/TFFController" type="controller::TFFController" base_class_type="pr2_controller_interface::Controller" />
+</library>

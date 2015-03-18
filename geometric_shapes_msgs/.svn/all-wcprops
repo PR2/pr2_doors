@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/geometric_shapes_msgs
+END
+manifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/geometric_shapes_msgs/manifest.xml
+END
+mainpage.dox
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/geometric_shapes_msgs/mainpage.dox
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/geometric_shapes_msgs/CMakeLists.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/geometric_shapes_msgs/Makefile
+END

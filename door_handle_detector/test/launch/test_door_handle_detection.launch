@@ -1,0 +1,81 @@
+<launch>
+
+ <param name="use_sim_time" value="true"/>
+
+ <include file="$(find pr2_machine)/$(env ROBOT).machine"/>
+
+
+
+
+ <!-- joy stick annotation launch -->
+ <node pkg="joy" type="joy" />
+ <include file="$(find joy_annotator)/joy_annotator.launch"/>
+
+
+
+
+
+ <!-- stereo processing for checkerboard detection -->
+ <node machine="c2" pkg="stereo_image_proc" type="stereoproc" />
+ <group ns="checkerdetector" clear_params="true">
+    <param name="display" type="int" value="0"/>
+    <param name="frame_id" type="string" value="stereo_optical_link"/>
+    <param name="rect0_size_x" type="double" value="0.02733"/>
+    <param name="rect0_size_y" type="double" value="0.027"/>
+    <param name="grid0_size_x" type="int" value="6"/>
+    <param name="grid0_size_y" type="int" value="8"/>
+    <param name="type0" type="string" value="data/ricebox.kinbody.xml"/>
+    <node pkg="checkerboard_detector" type="checkerboard_detector" respawn="true" >
+      <remap from="CamInfo" to="/stereo/left/cam_info"/>
+      <remap from="Image" to="/stereo/left/image_rect"/>
+        <!--       <env name="DISPLAY" value=":0.0"/> -->
+    </node>
+  </group>
+
+
+
+
+
+  <!-- checkerboard door  detection node -->
+    <param name="door_checkerboard_detector/door_width" type="double" value="0.9"/>
+    <param name="door_checkerboard_detector/door_checkerboard_x_offset" type="double" value="0.05"/>
+    <param name="door_checkerboard_detector/door_checkerboard_z_offset" type="double" value="1.65"/>
+    <param name="door_checkerboard_detector/checkerboard_handle_x_offset" type="double" value="0.72"/>
+    <param name="door_checkerboard_detector/checkerboard_handle_z_offset" type="double" value="0.74"/>
+    <param name="door_checkerboard_detector/frame_id" type="string" value="base_link"/>
+    <node machine="c2" pkg="door_handle_detector" type="door_checkerboard_detector" respawn="true" />
+
+  <!-- door handle detection using the tilt laser-->
+ <include file="$(find door_handle_detector)/launch/door_handle_detector.launch"/>
+
+  <!-- door handle detection test -->
+    <param name="test_door_detection_node/joy_topic" type="string" value="/joy_annotator/annotation_msg"/>
+    <param name="test_door_detection_node/frame_id" type="string" value="base_link"/>
+    <node pkg="door_handle_detector" type="test_door_detection_joystick" respawn="true" output="screen">
+    </node>
+
+
+  <!-- Head trajectory controller -->
+  <param name="head/trajectory_controller/velocity_scaling_factor" type="double" value="0.05"/>
+  <param name="head/trajectory_controller/trajectory_wait_timeout" type="double" value="5.0"/>
+  <param name="head/trajectory_controller/head_tilt_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="head/trajectory_controller/head_pan_joint/goal_reached_threshold" type="double" value="0.1"/>
+
+  <node pkg="pr2_controller_manager" type="spawner" args="$(find sbpl_arm_executive)/launch/xml/head_trajectory_controller.xml" output="screen"/>
+
+  <!-- Arm trajectory controller -->
+  <param name="right_arm/trajectory_controller/velocity_scaling_factor" type="double" value="1.0"/>
+  <param name="right_arm/trajectory_controller/trajectory_wait_timeout" type="double" value=".25"/>
+
+  <param name="right_arm/trajectory_controller/r_shoulder_pan_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_shoulder_lift_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_shoulder_roll_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_elbow_flex_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_forearm_roll_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_wrist_flex_joint/goal_reached_threshold" type="double" value="0.1"/>
+  <param name="right_arm/trajectory_controller/r_wrist_roll_joint/goal_reached_threshold" type="double" value="0.1"/>
+
+  <!--node pkg="pr2_controller_manager" type="spawner" args="$(find sbpl_arm_executive)/launch/xml/r_arm_trajectory_controller.xml" output="screen"/-->
+
+
+</launch> 

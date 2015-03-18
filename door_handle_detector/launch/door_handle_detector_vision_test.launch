@@ -1,0 +1,22 @@
+<launch>
+
+<!-- Stereo processing -->
+<include file="$(find stereo_image_proc)/narrow_stereoproc.launch" />
+
+
+
+<!-- Making sure exposure is set to auto -->
+<param name="/narrow_stereo/stereodcam/exposure_auto" value="true" />
+<node pkg="dcam" type="check_params">
+  <remap from="stereo/check_params" to="narrow_stereo/stereodcam/check_params" />
+</node>
+
+
+ <!-- Handle detector Camera -->
+     <node pkg="door_handle_detector" name="handle_detector_vision" type="handle_detector_vision" respawn="false" output="screen">
+	<param name="cascade_classifier" value="$(find door_handle_detector)/data/handles_data.xml" />
+         <remap from="stereo" to="narrow_stereo"/>
+     </node>
+
+
+</launch>

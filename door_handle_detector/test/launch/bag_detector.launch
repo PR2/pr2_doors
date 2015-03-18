@@ -1,0 +1,25 @@
+<launch>
+
+ <param name="use_sim_time" value="true"/>
+
+ <include file="$(find pr2_machine)/$(env ROBOT).machine"/>
+
+
+
+
+ <!-- joy stick annotation launch -->
+ <node pkg="joy" type="joy" />
+ <include file="$(find joy_annotator)/joy_annotator.launch"/>
+
+
+  <!-- door handle detection using the tilt laser-->
+ <include file="$(find door_handle_detector)/launch/simple_door_handle_detector.launch"/>
+
+  <!-- door handle detection test -->
+    <param name="test_door_detection_node/joy_topic" type="string" value="/joy_annotator/annotation_msg"/>
+    <param name="test_door_detection_node/frame_id" type="string" value="base_link"/>
+    <node pkg="door_handle_detector" type="test_door_detection_joystick" respawn="true" output="screen">
+    </node>
+
+
+</launch> 

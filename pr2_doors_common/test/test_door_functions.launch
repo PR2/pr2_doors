@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="door_handle_detector" type="test_door_functions" />
+</launch>

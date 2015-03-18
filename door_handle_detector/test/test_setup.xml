@@ -1,0 +1,24 @@
+<!-- Launch this once for each bag -->
+<launch>
+
+<!-- use sim time -->
+  <param name="use_sim_time" type="bool" value="true" />
+
+<!-- Stereo image processing -->
+  <group ns="stereo">
+    <node pkg="stereo_image_proc" type="stereo_image_proc" respawn="false" name="stereo_image_proc">
+      <param name="disparity_range" type="int" value="128"/>
+      <param name="prefilter_cap" type="int" value="1"/>
+      <param name="prefilter_size" type="int" value="255"/>
+      <param name="texture_threshold" type="int" value="5"/>
+      <param name="correlation_window_size" type="int" value="21"/>
+    </node>
+  </group>
+
+<!-- detectors -->
+  <include file="$(find door_handle_detector)/launch/door_handle_detector_bag.xml" />
+
+<!-- crop point clouds to simulate a narrow scan -->
+ <node pkg="door_handle_detector" type="point_cloud_cropper" name="point_cloud_cropper" args="0.73 1.13 base_link" />
+
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="doors_core" type="test_executive_functions" />
+</launch>

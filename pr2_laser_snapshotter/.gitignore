@@ -1,0 +1,11 @@
+.build_version
+/bin
+/build
+srv/cpp/*
+srv/java/*
+srv/lisp/*
+srv/oct/*
+src/pr2_laser_snapshotter/__init__.py
+src/pr2_laser_snapshotter/srv/*
+*~
+

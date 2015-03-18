@@ -1,0 +1,50 @@
+<package>
+  <name>pr2_doors_executive</name>
+  <version>1.0.0</version>
+  <description>pr2_doors_executive</description>
+  <maintainer email="dash@clearpathrobotics.com">Devon Ash</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/pr2_doors_executive</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Wim Meeussen</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>pr2_doors_actions</build_depend>
+  <build_depend>door_handle_detector</build_depend>
+  <build_depend>pr2_navigation_teleop</build_depend>
+  <build_depend>pr2_navigation_perception</build_depend>
+  <build_depend>pr2_navigation_local</build_depend>
+  <build_depend>pr2_controller_manager</build_depend>
+  <build_depend>pr2_mechanism_msgs</build_depend>
+  <build_depend>smach</build_depend>
+  <build_depend>smach_ros</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>pr2_doors_actions</run_depend>
+  <run_depend>door_handle_detector</run_depend>
+  <run_depend>pr2_navigation_teleop</run_depend>
+  <run_depend>pr2_navigation_perception</run_depend>
+  <run_depend>pr2_navigation_local</run_depend>
+  <run_depend>pr2_controller_manager</run_depend>
+  <run_depend>pr2_mechanism_msgs</run_depend>
+  <run_depend>smach</run_depend>
+  <run_depend>smach_ros</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>pr2_doors_actions</test_depend> -->
+  <!-- <test_depend>door_handle_detector</test_depend> -->
+  <!-- <test_depend>pr2_navigation_teleop</test_depend> -->
+  <!-- <test_depend>pr2_navigation_perception</test_depend> -->
+  <!-- <test_depend>pr2_navigation_local</test_depend> -->
+  <!-- <test_depend>pr2_controller_manager</test_depend> -->
+  <!-- <test_depend>pr2_mechanism_msgs</test_depend> -->
+  <!-- <test_depend>smach</test_depend> -->
+  <!-- <test_depend>smach_ros</test_depend> -->
+
+</package>

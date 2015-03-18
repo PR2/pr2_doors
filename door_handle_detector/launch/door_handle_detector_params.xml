@@ -1,0 +1,31 @@
+<launch>
+
+<!-- Handle detector Camera -->
+  <group ns="handle_detector_vision">
+   <param name="display" type="bool" value="false" />
+   <param name="cascade_classifier" value="$(find door_handle_detector)/data/handles_data.xml" />
+  </group>
+
+<!-- Handle detector Laser -->
+  <group ns="handle_detector_laser">
+   <param name="parameter_frame" type="string" value="base_footprint" />
+   <param name="fixed_frame" type="string" value="odom_combined" />
+   <param name="handle_min_height" value="0.7" />
+   <param name="handle_max_height" value="1.1" />
+   <param name="handle_distance_door_max_threshold" value="0.3" />
+  </group>
+
+<!-- Door detector -->
+  <group ns="doors_detector_laser">
+   <param name="parameter_frame" type="string" value="base_footprint" />
+   <param name="fixed_frame" type="string" value="odom_combined" />
+   <param name="door_min_height" value="1.5" />
+   <param name="door_max_height" value="3.0" />
+   <param name="door_min_width" value="0.75" />
+   <param name="door_max_width" value="1.2" />
+   <param name="door_max_dist_from_prior" value="0.5" />
+   <param name="handle_min_height" value="0.7" />
+   <param name="handle_max_height" value="1.1" />
+  </group>
+
+</launch>

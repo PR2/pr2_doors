@@ -1,0 +1,6 @@
+float64 angle_begin
+float64 angle_end
+float64 duration
+---
+sensor_msgs/PointCloud cloud
+---

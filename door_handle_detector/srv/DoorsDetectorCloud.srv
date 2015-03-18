@@ -1,0 +1,4 @@
+door_msgs/Door door
+sensor_msgs/PointCloud cloud
+---
+door_msgs/Door[] doors

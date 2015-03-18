@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg
+END
+AttachedCollisionObject.msg
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/AttachedCollisionObject.msg
+END
+CollisionObject.msg
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/CollisionObject.msg
+END
+PolygonalMap.msg
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/PolygonalMap.msg
+END
+CollisionObjectOperation.msg
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/CollisionObjectOperation.msg
+END
+OrientedBoundingBox.msg
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/OrientedBoundingBox.msg
+END
+CollisionMap.msg
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/wg-ros-pkg/!svn/ver/48341/stacks/motion_planning_common/trunk/mapping_msgs/msg/CollisionMap.msg
+END

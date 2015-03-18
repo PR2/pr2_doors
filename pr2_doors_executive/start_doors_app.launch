@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find pr2_doors_executive)/doors.launch" />
+  <node pkg="pr2_doors_executive" type="executive.py" output="screen" name="door_executive" />
+  <node pkg="pr2_doors_executive" type="trigger_opendoor.py" output="screen" name="trigger" />
+</launch>
+

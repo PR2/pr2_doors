@@ -1,0 +1,77 @@
+<package>
+  <name>door_handle_detector</name>
+  <version>1.0.0</version>
+  <description>A node which detects doors and handles from 3D point cloud data.</description>
+  <maintainer email="dash@clearpathrobotics.com">Devon Ash</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://pr.willowgarage.com</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Radu Bogdan Rusu</author>
+  <author>Marius</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>pr2_machine</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>mapping_msgs</build_depend>
+  <build_depend>door_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>stereo_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>angles</build_depend>
+  <build_depend>laser_assembler</build_depend>
+  <build_depend>pr2_doors_common</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>pr2_machine</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>mapping_msgs</run_depend>
+  <run_depend>door_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>stereo_msgs</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>std_srvs</run_depend>
+  <run_depend>angles</run_depend>
+  <run_depend>laser_assembler</run_depend>
+  <run_depend>pr2_doors_common</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>pr2_machine</test_depend> -->
+  <!-- <test_depend>ANN_doors</test_depend> -->
+  <!-- <test_depend>roscpp</test_depend> -->
+  <!-- <test_depend>tf</test_depend> -->
+  <!-- <test_depend>kdl</test_depend> -->
+  <!-- <test_depend>opencv2</test_depend> -->
+  <!-- <test_depend>cv_bridge</test_depend> -->
+  <!-- <test_depend>std_msgs</test_depend> -->
+  <!-- <test_depend>geometry_msgs</test_depend> -->
+  <!-- <test_depend>mapping_msgs</test_depend> -->
+  <!-- <test_depend>door_msgs</test_depend> -->
+  <!-- <test_depend>sensor_msgs</test_depend> -->
+  <!-- <test_depend>stereo_msgs</test_depend> -->
+  <!-- <test_depend>visualization_msgs</test_depend> -->
+  <!-- <test_depend>std_srvs</test_depend> -->
+  <!-- <test_depend>angles</test_depend> -->
+  <!-- <test_depend>laser_assembler</test_depend> -->
+  <!-- <test_depend>pr2_doors_common</test_depend> -->
+  <!-- <test_depend>common_rosdeps</test_depend> -->
+
+<export>
+    <cpp cflags="-I${prefix}/include"/>
+</export>
+
+</package>

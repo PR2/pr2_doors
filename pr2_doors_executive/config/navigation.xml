@@ -1,0 +1,14 @@
+<launch>
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
+
+<!-- Controllers -->
+  <include file="$(find pr2_navigation_teleop)/teleop.xml" />
+
+<!-- Laser filtering -->
+  <include file="$(find pr2_navigation_perception)/lasers_and_filters.xml" />
+  <include file="$(find pr2_navigation_perception)/ground_plane.xml" />
+
+<!--Local Navigation -->
+  <include file="$(find pr2_navigation_local)/move_base_local.xml" />
+
+</launch>
