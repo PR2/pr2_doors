@@ -13,6 +13,8 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics">
 
+  <xacro:include filename="$(find pr2_doors_gazebo_demo)/urdf/door.gazebo"/>
+
   <xacro:property  name="M_PI" value="3.14" />
   <xacro:property  name="wall_x_loc" value="1.25" />
   <xacro:property  name="handle_height" value="0.85" />
