@@ -1,0 +1,54 @@
+<package>
+  <name>pr2_doors_gazebo_demo</name>
+  <version>1.0.0</version>
+  <description>Launch files for door opening in Gazebo.</description>
+  <maintainer email="dash@clearpathrobotics.com">Devon Ash</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">Nawh Son</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>John Hsu</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>pr2_doors_executive</build_depend>
+  <build_depend>pr2_doors_actions</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>pr2_gazebo</build_depend>
+  <build_depend>pr2_controller_manager</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>rostopic</build_depend>
+  <build_depend>pr2_tuckarm</build_depend>
+  <build_depend>gazebo</build_depend>
+  <build_depend>move_base_msgs</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>pr2_doors_executive</run_depend>
+  <run_depend>pr2_doors_actions</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>pr2_gazebo</run_depend>
+  <run_depend>pr2_controller_manager</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>rostopic</run_depend>
+  <run_depend>pr2_tuckarm</run_depend>
+  <run_depend>gazebo</run_depend>
+  <run_depend>move_base_msgs</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>pr2_doors_executive</test_depend> -->
+  <!-- <test_depend>pr2_doors_actions</test_depend> -->
+  <!-- <test_depend>actionlib</test_depend> -->
+  <!-- <test_depend>pr2_gazebo</test_depend> -->
+  <!-- <test_depend>pr2_controller_manager</test_depend> -->
+  <!-- <test_depend>gazebo_tools</test_depend> -->
+  <!-- <test_depend>rostopic</test_depend> -->
+  <!-- <test_depend>pr2_tuckarm</test_depend> -->
+  <!-- <test_depend>gazebo</test_depend> -->
+  <!-- <test_depend>ros_epic_fail</test_depend> -->
+  <!-- <test_depend>move_base_msgs</test_depend> -->
+
+</package>
