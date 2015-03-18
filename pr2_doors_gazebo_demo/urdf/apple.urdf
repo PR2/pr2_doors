@@ -1,0 +1,555 @@
+<sdf version='1.4'>
+  <model name='door'>
+    <link name='floor1_link'>
+      <pose>1.25 0.65 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 -2.255 0 0 -0 0</pose>
+        <mass>400</mass>
+        <inertia>
+          <ixx>4510.03</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>40</iyy>
+          <iyz>0</iyz>
+          <izz>4510.03</izz>
+        </inertia>
+      </inertial>
+      <collision name='floor1_link_collision'>
+        <pose>0 8 0.001 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8 8 0.002</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+09</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='floor1_link_collision_floor2_link'>
+        <pose>0 -12 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8 8 0.002</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+09</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+08</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='floor1_link_collision_wall1_link'>
+        <pose>0 5 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 10 2</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+09</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <laser_retro>1000</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='floor1_link_collision_wall2_link'>
+        <pose>0 -6.02 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 10 2</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+09</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <laser_retro>1500</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='floor1_link_visual'>
+        <pose>0 8 0.001 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8 8 0.002</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='floor1_link_visual_floor2_link'>
+        <pose>0 -12 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>8 8 0.002</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='floor1_link_visual_wall1_link'>
+        <pose>0 5 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 10 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Grey2</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='floor1_link_visual_wall2_link'>
+        <pose>0 -6.02 1 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 10 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Grey2</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <gravity>0</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <link name='door_link'>
+      <pose>1.25 0.65 0.05 0 -0 0</pose>
+      <inertial>
+        <pose>-0.000166113 -0.00265781 0.00315615 0 -0 0</pose>
+        <mass>30.1</mass>
+        <inertia>
+          <ixx>1.16374</ixx>
+          <ixy>-0.00398671</ixy>
+          <ixz>0.00473422</ixz>
+          <iyy>1.1002</iyy>
+          <iyz>0.0757475</iyz>
+          <izz>3.06504</izz>
+        </inertia>
+      </inertial>
+      <collision name='door_link_collision'>
+        <pose>0 -0.5 1 0 -0 3.14</pose>
+        <geometry>
+          <box>
+            <size>0.1 1 2</size>
+          </box>
+        </geometry>
+        <laser_retro>2000</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='door_link_collision_keyhole_link'>
+        <pose>-0.05 -0.8 0.95 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+        <laser_retro>3900</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='door_link_visual'>
+        <pose>0 -0.5 1 0 -0 3.14</pose>
+        <geometry>
+          <box>
+            <size>0.1 1 2</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Grey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='door_link_visual_keyhole_link'>
+        <pose>-0.05 -0.8 0.95 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Shiny</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0.01</linear>
+        <angular>0.01</angular>
+      </velocity_decay>
+      <gravity>0</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='door_joint' type='revolute'>
+      <child>door_link</child>
+      <parent>floor1_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>1000</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>100</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='handle_link'>
+      <pose>1.14 -0.15 0.85 0 -0 0</pose>
+      <inertial>
+        <pose>0 0.02 0 0 -0 0</pose>
+        <mass>0.6</mass>
+        <inertia>
+          <ixx>0.0412</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.04</iyy>
+          <iyz>0</iyz>
+          <izz>0.0142</izz>
+        </inertia>
+      </inertial>
+      <collision name='handle_link_collision'>
+        <pose>0 0.06 0 1.57 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.14</length>
+            <radius>0.013</radius>
+          </cylinder>
+        </geometry>
+        <laser_retro>3900</laser_retro>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+08</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='handle_link_collision_handle1_link'>
+        <pose>0.025 0 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.01</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+08</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <laser_retro>3900</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='handle_link_collision_handle2_link'>
+        <pose>0.025 0.12 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.01</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+08</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <laser_retro>3900</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='handle_link_collision_handle3_link'>
+        <pose>0.06 0 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1e+08</kp>
+              <kd>1</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>50</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <laser_retro>3900</laser_retro>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='handle_link_visual'>
+        <pose>0 0.06 0 1.57 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.14</length>
+            <radius>0.013</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Handle</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='handle_link_visual_handle1_link'>
+        <pose>0.025 0 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.01</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Handle</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='handle_link_visual_handle2_link'>
+        <pose>0.025 0.12 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.01</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Shiny</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='handle_link_visual_handle3_link'>
+        <pose>0.06 0 0 0 1.57 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>PR2/Shiny</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay>
+        <linear>0.05</linear>
+        <angular>0.05</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <gravity>0</gravity>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='handle_joint' type='revolute'>
+      <child>handle_link</child>
+      <parent>door_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.785</lower>
+          <upper>0.785</upper>
+          <effort>1000</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>10</damping>
+        </dynamics>
+      </axis>
+    </joint>
+  </model>
+</sdf>
