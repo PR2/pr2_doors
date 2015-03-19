@@ -126,7 +126,7 @@ public:
         ROS_ERROR("Failed to call service on point cloud assembler or laser scan assembler.");
 
       pub_.publish(resp.cloud);
-      ROS_DEBUG("Snapshotter::Published Cloud size=%u", resp.cloud.get_points_size());
+      //ROS_DEBUG("Snapshotter::Published Cloud size=%u", resp.cloud.get_points_size());
 
       prev_signal_ = *cur_signal;
     }
