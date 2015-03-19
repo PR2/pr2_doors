@@ -2,7 +2,7 @@
 # Catkin CMake Standard: http://www.ros.org/doc/groovy/api/catkin/html/user_guide/standards.html
 cmake_minimum_required(VERSION 2.8.3)
 project(pr2_laser_snapshotter)
-find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs geometry_msgs std_msgs pr2_msgs laser_assembler message_generation message_runtime actionlib actionlib_msgs)
+find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs geometry_msgs std_msgs pr2_msgs laser_assembler message_generation message_runtime actionlib actionlib_msgs genmsg)
 
 add_service_files(DIRECTORY srv FILES BuildCloudAngle.srv)
 
@@ -17,10 +17,10 @@ DEPENDENCIES
 std_msgs actionlib_msgs sensor_msgs geometry_msgs pr2_msgs)
 
 add_executable(pr2_laser_snapshotter_action src/pr2_laser_snapshotter_action.cpp)
-target_link_libraries(pr2_laser_snapshotter_action ${CATKIN_LIBRARIES})
+target_link_libraries(pr2_laser_snapshotter_action ${catkin_LIBRARIES})
 
 add_executable(pr2_laser_snapshotter src/pr2_laser_snapshotter.cpp)
-target_link_libraries(pr2_laser_snapshotter ${CATKIN_LIBRARIES})
+target_link_libraries(pr2_laser_snapshotter ${catkin_LIBRARIES})
 
 
 catkin_package(
